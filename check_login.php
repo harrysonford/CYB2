@@ -22,19 +22,20 @@
         include("utils/billing.php");
         $conn = mysqli_connect($db_server, $db_user, $db_pwd, "billing");
         
-        //запрос в базе данных пары значений логин и пароль с уязвимостью т.к. оно не параметризовано
-        $sql = "SELECT * FROM users WHERE Login='$user' AND Pwdhash='$hash' ";
-        $query = mysqli_query($conn, $sql);
-        $result = mysqli_fetch_all($query);
+        //Уязвимый запрос в базе данных пары значений логин и пароль 
+        // $sql = "SELECT * FROM users WHERE Login='$user' AND Pwdhash='$hash' ";
+        // $query = mysqli_query($conn, $sql);
+        // $result = mysqli_fetch_all($query);
         
-        //ПАРАМЕТРИЗОВАННЫЙ ЗАПРОС
-        // $sql = "SELECT * FROM users WHERE Login=? AND Pwdhash=? ";
+        //ПАРАМЕТРИЗОВАННЫЙ ЗАПРОС, вместо переменных - ? (это параметр)
+        $sql = "SELECT * FROM users WHERE Login=? AND Pwdhash=? ";
 
-        // $statement = mysqli_prepare($conn, $sql);//указываем сессию и базу данных
-        // mysqli_stmt_bind_param($statement, "ss", $user, $hash);//указываем statement, типы передаваемых данных, параметры
-        // //s - string, i - integer
-        // $cursor = mysqli_stmt_get_result($statement); //канал взаимодействия между БД и кодом
-        // $result = mysqli_fetch_all($cursor); //извлекаем записи из БД
+        $statement = mysqli_prepare($conn, $sql);//указываем сессию и базу данных
+        mysqli_stmt_bind_param($statement, "ss", $user, $hash);//указываем statement, типы передаваемых данных, параметры
+        //s - string, i - integer
+        mysqli_stmt_execute($statement);
+        $cursor = mysqli_stmt_get_result($statement); //канал взаимодействия между БД и кодом
+        $result = mysqli_fetch_all($cursor); //извлекаем записи из БД
 
         mysqli_close($conn);
         //var_dump($result);  //передаем данные для анализа, 
