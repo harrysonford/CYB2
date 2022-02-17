@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hello, this is title!</title>
+	<script>
+		function sayHello() {
+			document.getElementById("hdr1").innerHTML = "That's my sh";
+		}
+		function nyaCat() {
+			document.getElementById("hdr1").innerHTML = "Nyaaaa";
+		}
+		function notNyaCat() {
+			document.getElementById("hdr1").innerHTML = "So, you're gonna go far, kid?";
+		}
+		function playSound() {
+			var thissound = document.getElementById("mySound");
+			thissound.play();
+		}
+		function stopSound() {
+			var thissound = document.getElementById(soundobj);
+			thissound.pause();
+			thissound.currentTime = 0;
+		}
+	</script>
+	<audio id="mySound" >
+		<source src="audio/cat.mp3" type="audio/mp3" />
+	</audio>
+</head>
+
+<body>
+	<a href="index1.html">Home</a>
+	<h1 id="hdr1">So, you're gonna go far, kid?</h1>
+	<h2>
+		разное
+	</h2>
+	<h3>third h3 as you see</h3>
+	<p>This is new paragraph</p>
+	<p>This is second paragraph</p>
+	<p>This is third paragraph</p>
+	<p>This is **fourth** paragraph</p>
+	<a href="https://hackmd.io">See hackmd.io</a> <br />
+	<!--<audio id="mySound" src="audio/cat.mp3" type="audio/mp3"></audio>-->
+	<img onclick="playSound(mySound);" onmouseover="playSound()" onmouseout="notNyaCat();" src="images/Me.jpg" style="width: 200px;" />
+	<br />
+	<button onclick="playSound()">Play</button>
+	<button onclick="sayHello();">Click me</button>
+</body>
+
+</html>
