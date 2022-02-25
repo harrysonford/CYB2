@@ -1,4 +1,6 @@
-/* Bordered form */
+
+
+  /* Bordered form */
 form {
     border: 3px solid #f5f5f5;
   }
@@ -32,17 +34,28 @@ form {
   }
 
   button:active{
-    background-color:red;
+    background-color:rgb(30, 131, 5);
   }
 
-  a {
-    color: orange;
+  a:link, a:visited {
+    background-color: #ff2222;
+    color: white;
+    padding: 14px 50px;
+    text-align: center; 
+    width: 10%;
+    height: 10%;
+    text-decoration: underline;
+    display: inline-block;
   }
   
-  a.button{
+  a:hover, a:active {
+    background-color: rgb(252, 155, 155);
+  }
+  
+  /* a.button{
     color:rgba(0, 128, 0, 0.459);
     text-decoration: none;
-  }
+  } */
   /*
   a:visited {
     color: rgb(81, 255, 246);

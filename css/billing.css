@@ -1,0 +1,30 @@
+table {
+    width:30%;
+}
+tr:nth-child(even) {
+    background-color: #f2dede;
+}
+td:nth-child(2n){
+    text-align: right;
+}
+td:nth-child(3){
+    text-align: center;
+}
+th, td {
+    padding: 3px;
+}
+a {
+    color: rgb(6, 22, 255);
+    text-decoration: underline;
+    cursor: pointer;
+    width: 10%;
+    height: 10%;
+    display: inline-block;
+  }
+  
+  
+  
+  a.button{
+    color:rgba(0, 128, 0, 0.459);
+    text-decoration: none;
+  }

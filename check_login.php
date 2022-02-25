@@ -43,8 +43,12 @@
         //проверяем если длина массива 1 - юзер найден
         //выводит 1 при корректной записи, которая есть в бд, 0 если записи нет, в формате
         //массива массивов
-        if (count($result) == 0)
+        if (count($result) == 0){
             echo "<h1>The User was not found</h1>";
+            echo "Try again, please";
+            echo "<h5>You will be redirected soon</h5>";
+            echo '<meta http-equiv="refresh" content="2; URL=login.php"> ';
+        }
         else{
             echo "<h1>Welcome, $user!</h1>";
             echo "Сейчас вы будете перенаправлены на калькулятор";
@@ -58,7 +62,7 @@
         
     ?>
     <br />
-    <a href="calc.php">To get business</a> <br />
-    <a href="clicks.php">To get clicked</a>
+    <!--<a href="calc.php">To get business</a> <br />
+    <a href="clicks.php">To get clicked</a>-->
 </body>
 </html>
