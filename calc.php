@@ -21,18 +21,18 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Calculator</title>
         <link rel="stylesheet" href="css/login.css" />
-        <style>
+        <!-- <style>
             input {
                 margin-bottom: 6px;
-                width: 170px;
+                width: 20%;
                 text-align: center;
             }
                 button {
                 margin-bottom: 10px;
                 margin-right: 10px;
-                width: 80px;
+                width: 5%;
             }
-        </style>
+        </style> -->
         <script>
             function plus() {
 				//alert("Hello, world!");
@@ -67,10 +67,10 @@
     <body>
         <a href="index1.html">Home</a>
         <h1>Калькулятор</h1>
-        <input id="txtX" /> <br />
-        <input id="txtY" /> <br />
+        <input id="txtX" type="text" /> <br />
+        <input id="txtY" type="text" /> <br />
         <button id="plusBut" onclick="plus();">+</button>
         <button id="minusBut" onclick="minus();">-</button> <br />
-        <input id="txtZ" />
+        <input id="txtZ" type="text" />
     </body>
 </html>
