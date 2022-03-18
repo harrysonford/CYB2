@@ -40,7 +40,7 @@ $user = $_SESSION["user"];
         
     <?php
         include("utils/billing.php");
-        $conn = mysqli_connect($db_server, $db_user, $db_pwd, "billing");
+        $conn = mysqli_connect($db_server, $db_user, $db_pwd, $dbname);
         
 
         //ПАРАМЕТРИЗОВАННЫЙ ЗАПРОС, вместо переменных - ? (это параметр)
@@ -54,13 +54,13 @@ $user = $_SESSION["user"];
         $result = mysqli_fetch_all($cursor); //извлекаем записи из БД
         mysqli_close($conn);
         echo "<tr>";
-        echo("<td>"."ID"."</tb><td>"."First number"."</tb><td>"."Operation"."</tb><td>"."Second number"."</td>");
+        echo("<td>"."ID"."</tb><td>"."First number"."</tb><td>"."Operation"."</tb><td>"."Second number"."</td><td>"."Time stamp"."</td>");
         echo "<tr>";
         for ($i = 0; $i < count($result); ++$i){
             $j = $i + 1;
             //echo("<td>"."ID"."</tb><td>"."First number"."</tb><td>"."Operation"."</tb><td>"."Second number"."</td>");
             echo "<tr>";
-            echo("<td>".$j."</tb><td>".$result[$i][1]."</tb><td>".$result[$i][3]."</tb><td>".$result[$i][2]."</td>");
+            echo("<td>".$j."</tb><td>".$result[$i][1]."</tb><td>".$result[$i][3]."</tb><td>".$result[$i][2]."</td><td>".$result[$i][5]."</td>");
             echo "</tr>";
         }
         

@@ -17,7 +17,7 @@ form {
   
   /* Set a style for all buttons */
   button {
-    background-color: #04AA6D;
+    background-color: #045aaa;
     color: white;
     padding: 14px 64px;
     margin: 8px 2px;
@@ -38,14 +38,22 @@ form {
   }
 
   a:link, a:visited {
-    background-color: #ff2222;
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /* 
+    background-color: #ee8888;
     color: white;
     padding: 14px 50px;
     text-align: center; 
     width: 10%;
     height: 10%;
     text-decoration: underline;
-    display: inline-block;
+    display: inline-block; */
   }
   
   a:hover, a:active {
@@ -69,7 +77,7 @@ form {
   .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: #f1c180;
   }
   
   /* Center the avatar image inside this container */

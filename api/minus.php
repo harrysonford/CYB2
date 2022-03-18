@@ -10,11 +10,12 @@ $y = $_REQUEST["y"];
 // 1. Слабый пароль 
 // 2. Нарушение принципа наименьших привилегий
 // 3. Секрет в коде
-$conn = mysqli_connect("localhost:3306", "root", "", "billing");
+include("../utils/billing.php");
+$conn = mysqli_connect($db_server, $db_user, $db_pwd, $dbname);
 
-
+$currentDateTime = date('Y-m-d H:i:s');
 // 4. Уязвимость для SQL Injection
-$sql = "INSERT INTO calcs( Number1, Number2, Operation, User) VALUES($x,$y, 'minus', '$user')";
+$sql = "INSERT INTO calcs( Number1, Number2, Operation, User, Timestamp) VALUES($x,$y, 'minus', '$user', '$currentDateTime')";
 mysqli_query($conn, $sql);
 
 

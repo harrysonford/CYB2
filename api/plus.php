@@ -15,12 +15,13 @@ $y = $_REQUEST["y"];
 //включаем один файл в состав другого
 
 include("../utils/billing.php");
-$conn = mysqli_connect($db_server, $db_user, $db_pwd, "billing");
+$conn = mysqli_connect($db_server, $db_user, $db_pwd, $dbname);
 
 
-
+$currentDateTime = date('Y-m-d H:i:s');
+//echo $currentDateTime;
 // 4. Уязвимость для SQL Injection
-$sql = "INSERT INTO calcs( Number1, Number2, Operation, User ) VALUES($x,$y, 'plus', '$user')";
+$sql = "INSERT INTO calcs( Number1, Number2, Operation, User, Timestamp ) VALUES($x,$y, 'plus', '$user', '$currentDateTime')";
 mysqli_query($conn, $sql);
 
 
@@ -30,3 +31,12 @@ $z = $x + $y;
 //echo $sql;
 echo $z;
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    try {
+        $db = new mysqli($db_server, $db_user, $db_pwd, $dbname);
+        $db->set_charset($charset);
+        $db->options(MYSQLI_OPT_INT_AND_FLOAT_NATIVE, 1);
+    } catch (\mysqli_sql_exception $e) {
+         throw new \mysqli_sql_exception($e->getMessage(), $e->getCode());
+    }
+    unset($db_server, $dbname, $db_user, $db_pwd, $charset);
